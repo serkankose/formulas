@@ -1,0 +1,115 @@
+﻿@page "/"
+@using System.Runtime.CompilerServices
+@using System.Reflection
+@using srbrettle.FinancialFormulas
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+
+<div style="background-color: darkgray">
+    <small>Method count: @MethodInfos.Count</small>
+    <small>render counter: @Counter</small>
+</div>
+
+@foreach (var methodInfo in MethodInfos)
+{
+    <div class="m-2">
+        <h5>@methodInfo.Name</h5>
+
+        @foreach (var param in methodInfo.GetParameters())
+        {
+            <div class="m-1">
+                <div>
+                    <div>@param.Name (<small>@param.ParameterType</small>)</div>
+                </div>
+
+                <input name="@param.Name"
+               @bind="@methodParams[methodInfo.Name][param.Name!]"
+               @bind:event="oninput"
+               @onchange="() => { Calc();  }"
+               type="text"
+               placeholder="0" />
+
+            </div>
+        }
+
+        @{ Calc(); }
+
+        <p class="@Counter">Result: @methodResults[methodInfo.Name].result</p>
+        <p class="alert-warning">@methodResults[methodInfo.Name].error</p>
+
+
+        @{
+
+            void Calc()
+            {
+                try
+                {
+                    object?[] parameters = methodParams[methodInfo.Name].Select(o =>
+                    {
+                        // Console.WriteLine($"o: {o.Key}: {o.Value}");
+
+                        if (Decimal.TryParse(o.Value, out decimal v))
+                        {
+                            return v;
+                        }
+
+                        return 0;
+                    }).Cast<object>().ToArray();
+
+                    var result = @methodInfo.Invoke(typeof(BankingFormulas), parameters);
+
+                    // Console.WriteLine($"result: {result}");
+                    methodResults[methodInfo.Name] = (result!.ToString()!, "");
+                }
+                //catch (TargetParameterCountException){}
+                catch (Exception e)
+                {
+                    methodResults[methodInfo.Name] = ("error!", e.Message);
+                }
+                finally
+                {
+                    Counter += 1;
+                }
+            }
+        }
+
+    </div>
+}
+
+@code
+{
+    Dictionary<string, Dictionary<string, string>> methodParams = new();
+    Dictionary<string, (string result, string error)> methodResults = new();
+    public int Counter { get; set; } = 0;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        var infos = typeof(BankingFormulas).GetMethods().ToList();
+
+        MethodInfos = infos;
+        foreach (var methodInfo in MethodInfos)
+        {
+            methodResults.Add(methodInfo.Name, ("", ""));
+            methodParams.Add(methodInfo.Name, new Dictionary<string, string>());
+
+            foreach (var param in methodInfo.GetParameters())
+            {
+                methodParams[methodInfo.Name][param.Name!] = "1";
+            }
+
+            Console.WriteLine($"{methodInfo.Name} Params length: {methodInfo.GetParameters().Length}");
+        }
+    }
+
+
+    private List<MethodInfo> MethodInfos = new();
+}

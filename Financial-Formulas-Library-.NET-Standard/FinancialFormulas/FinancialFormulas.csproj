@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Copyright></Copyright>
+    <PackageLicenseUrl>https://github.com/srbrettle/Financial-Formulas-Library-.NET-Standard/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/srbrettle/Financial-Formulas-Library-.NET-Standard</PackageProjectUrl>
+    <Authors>Scott Brettle</Authors>
+    <Company />
+    <Product />
+    <Description>A collection of methods for solving Finance/Accounting equations.</Description>
+    <PackageTags>financial, formulas, equations, calculations, finance, accounting, economics, invest, math, mathematics, business, entrepreneur, banking</PackageTags>
+    <RepositoryUrl>https://github.com/srbrettle/Financial-Formulas-Library-.NET-Standard</RepositoryUrl>
+    <Version>1.3.1</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <PackageIconUrl>https://raw.githubusercontent.com/srbrettle/Financial-Formulas-Library-.NET-Standard/master/FinancialFormulas.png</PackageIconUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget></PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+</Project>
