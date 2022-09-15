@@ -1,0 +1,46 @@
+﻿@using srbrettle.FinancialFormulas
+@using System.Reflection
+<h3>Methods</h3>
+
+@{
+    Counter++;
+}
+
+<div hidden="hidden" style="background-color: darkgray">
+    <small>Method count: @MethodInfos.Count</small>
+    <small>render counter: @Counter</small>
+</div>
+
+@foreach (var methodInfo in MethodInfos)
+{
+    <Method MethodInfo=@methodInfo></Method>
+}
+
+@code
+{
+    [Parameter]
+    public Type Type { get; set; }
+    public int Counter { get; set; } = 0;
+
+    protected override void OnInitialized()
+    {
+        MethodInfos = Type.GetMethods()
+            .Where(info => new string[]
+            {
+                "GetType",
+                "ToString",
+                "Equals",
+                "GetHashCode",
+            }.Contains(info.Name) == false).ToList();
+
+        foreach (var methodInfo in MethodInfos)
+        {
+            Console.WriteLine($"{methodInfo.Name} Params length: {methodInfo.GetParameters().Length}");
+        }
+
+        base.OnInitialized();
+
+    }
+
+    private List<MethodInfo> MethodInfos = new();
+}
