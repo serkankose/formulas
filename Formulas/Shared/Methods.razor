@@ -1,6 +1,5 @@
 ﻿@using srbrettle.FinancialFormulas
 @using System.Reflection
-<h3>Methods</h3>
 
 @{
     Counter++;
@@ -11,10 +10,12 @@
     <small>render counter: @Counter</small>
 </div>
 
-@foreach (var methodInfo in MethodInfos)
-{
-    <Method MethodInfo=@methodInfo></Method>
-}
+<div class="">
+    @foreach (var methodInfo in MethodInfos)
+    {
+        <Method MethodInfo=@methodInfo></Method>
+    }
+</div>
 
 @code
 {
