@@ -43,7 +43,7 @@
                 <tr class="m-1 row-cols-2" id="@($"tr{@i++}")">
                     <td>Result</td>
                     <td class="fw-bold" >
-                        <div id="@($"tr{@i}_result")">@Result.result</div>
+                        <div id="@($"{MethodInfo.Name.ToLower()}_result")">@Result.result</div>
                     </td>
                 </tr>
             </tbody>
