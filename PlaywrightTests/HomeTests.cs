@@ -79,8 +79,8 @@ public class Tests : PageTest
 
         foreach (var paramValue in paramsDict)
         {
-            var param01 = method.Locator($"input:right-of(:text(\"{paramValue.Key}\"))").Nth(0);
-            await param01.FillAsync(paramValue.Value);
+            await method.Locator($"input:right-of(:text(\"{paramValue.Key}\"))").Nth(0)
+                .FillAsync(paramValue.Value);
         }
 
         var result = method.Locator($"id={methodName.ToLower()}_result");
