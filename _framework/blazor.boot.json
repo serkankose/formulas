@@ -8,7 +8,7 @@
   "resources": {
     "assembly": {
       "FinancialFormulas.dll": "sha256-AFFyLFmtzE3SehPFFQ8PA7tX\/MtfGsZd25BHRQkRm6U=",
-      "Formulas.dll": "sha256-uP+NSOdUGS8Nkw\/6uxo1hHQz\/CHn1IYCndCxXzhBn7M=",
+      "Formulas.dll": "sha256-eDA52fDLf98nODgOMFk6IGutoYcb9qFWRSI+gT7bZAo=",
       "Microsoft.AspNetCore.Components.dll": "sha256-T5e417P98wuh15WqoHTP6bJqpe1GOmYF1ELTJkXpv7o=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-3poIVMWCfVe6wCEbZLU0PCR7HN9OqcH3qnn9xI4+vuw=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-WasyeyYTHVFINaKU2jkYAe37pDZBvtTueW3ySFvnDps=",
