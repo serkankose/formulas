@@ -38,6 +38,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     # publishes Blazor project to the release-folder
+    - name: Run Tests
+      run: ls
     - name: Publish .NET Core Project
       run: dotnet publish Formulas/Formulas.csproj -c Release -o release --nologo
     - name: Deploy to GitHub Pages
