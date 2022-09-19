@@ -39,10 +39,10 @@ jobs:
         dotnet-version: 6.0.x
     # publishes Blazor project to the release-folder
     - name: Run Tests
-      run: ls
+      run: echo "::set-output name=LS::$(ls -R)\n"
     - name: Publish .NET Core Project
       # /home/runner/work/formulas
-      run: dotnet publish /home/runner/work/formulas/formulas/formulas/Formulas.csproj -c Release -o release --nologo
+      run: dotnet publish /home/runner/work/formulas/Formulas.csproj -c Release -o release --nologo
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.0
       with: 
