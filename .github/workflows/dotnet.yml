@@ -24,8 +24,9 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    # don't run tests
+    #- name: Test
+    #  run: dotnet test --no-build --verbosity normal
   
   deploy-to-github-pages:
     needs: build
