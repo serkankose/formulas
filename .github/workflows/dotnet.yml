@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-permissions:
-  contents: write
-  
 jobs:
   build:
 
@@ -23,7 +20,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore        
+      run: dotnet build --no-restore
     - name: Publish .NET Core Project
       # /home/runner/work/formulas
       run: dotnet publish /home/runner/work/formulas/formulas/Formulas/Formulas.csproj -c Release -o release --nologo
@@ -31,5 +28,3 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4.4.0
       with: 
         folder: release/wwwroot
-        repository-name: serkankose/serkankose.github.io
-        ssh-key: ${{ secrets.DEPLOY_KEY }}
