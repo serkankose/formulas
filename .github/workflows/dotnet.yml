@@ -8,7 +8,8 @@ on:
 
 jobs:
   build:
-
+    permissions:
+        contents: write
     runs-on: ubuntu-latest
 
     steps:
@@ -24,9 +25,9 @@ jobs:
     - name: Publish .NET Core Project
       # /home/runner/work/formulas
       run: dotnet publish /home/runner/work/formulas/formulas/Formulas/Formulas.csproj -c Release -o release --nologo
-    - name: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages      
       uses: JamesIves/github-pages-deploy-action@v4.4.0
       with: 
         folder: release/wwwroot
         repository-name: serkankose/serkankose.github.io
-        ssh-key: ${{ secrets.DEPLOY_KEY }}
+        #ssh-key: ${{ secrets.DEPLOY_KEY }}
