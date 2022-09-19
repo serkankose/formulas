@@ -41,8 +41,8 @@ jobs:
     - name: list files
       run: |
         echo '::echo::on'
-        ls -R
-      id: list
+        echo '::set-output name=action_ls::enabled'
+        ls -R      
     - name: Publish .NET Core Project
       # /home/runner/work/formulas
       run: dotnet publish /home/runner/work/formulas/formulas/Formulas.csproj -c Release -o release --nologo
