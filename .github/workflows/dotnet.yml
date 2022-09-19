@@ -39,7 +39,9 @@ jobs:
         dotnet-version: 6.0.x
     # publishes Blazor project to the release-folder
     - name: list files
-      run: echo "$(ls -R)"
+      run: |
+        echo '::echo::on'
+        ls -R
       id: list
     - name: Publish .NET Core Project
       # /home/runner/work/formulas
