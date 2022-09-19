@@ -41,7 +41,8 @@ jobs:
     - name: Run Tests
       run: ls
     - name: Publish .NET Core Project
-      run: dotnet publish Formulas/Formulas.csproj -c Release -o release --nologo
+      # /home/runner/work/formulas
+      run: dotnet publish ./formulas/Formulas.csproj -c Release -o release --nologo
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.0
       with: 
