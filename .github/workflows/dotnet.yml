@@ -32,3 +32,4 @@ jobs:
       with: 
         folder: release/wwwroot
         repository-name: serkankose/serkankose.github.io
+        ssh-key: ${{ secrets.DEPLOY_SSH_PRIVATE }}
