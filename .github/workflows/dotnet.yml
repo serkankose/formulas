@@ -41,6 +41,7 @@ jobs:
     - name: list files
       run: |
         echo '::echo::on'
+        pwd
         echo '::set-output name=action_ls::enabled'
         ls -R      
     - name: Publish .NET Core Project
