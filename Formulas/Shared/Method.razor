@@ -29,7 +29,7 @@
                         <td>
 
 
-                            <input name="@param.Name"
+                            <input name="@param.Name" id="@($"{@MethodInfo.Name}_{@param.Name}")"
                                @bind="@methodParams[param.Name!]"
                                @bind:event="oninput"
                                @onchange="() => { Calc(); }"
@@ -43,7 +43,7 @@
                 <tr class="m-1 row-cols-2" id="@($"tr{@i++}")">
                     <td>Result</td>
                     <td class="fw-bold" >
-                        <div id="@($"{MethodInfo.Name.ToLower()}_result")">@Result.result</div>
+                        <div id="@($"{MethodInfo.Name}_result")">@Result.result</div>
                     </td>
                 </tr>
             </tbody>
