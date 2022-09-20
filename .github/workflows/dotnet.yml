@@ -30,4 +30,4 @@ jobs:
       with: 
         folder: release/wwwroot
         repository-name: serkankose/serkankose.github.io
-        ssh-key: ${{ secrets.DEPLOY_KEY }}
+        token: ${{ secrets.PAT }}
