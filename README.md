@@ -11,7 +11,7 @@ The formulas in the library are loaded with reflection and executed with the giv
 For some formulas it can raise exception, the user should set realistic values.
 
 ## the UI
-It's written in .Net Blazor WebAssembly in an afternoon so it's not quite basic, it just works, there are lots of room for improvement, such as:
+It's written in .Net Blazor WebAssembly in an afternoon so it's quite basic, it just works, there are lots of room for improvement, such as:
 
 - Better, more realistic sample parameters
 - Range of values with realistic boundaries
