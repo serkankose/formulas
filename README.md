@@ -1,4 +1,4 @@
-# formulas
+# formulas with Blazor, webassembly (wasm)
 
 This is UI around the financial formulas available in the .net library 'Financial-Formulas-Library-.NET-Standard'.
 
